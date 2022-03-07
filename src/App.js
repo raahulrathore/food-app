@@ -1,8 +1,10 @@
+import Header from "./components/LAYOUTS/Header";
+
 function App() {
   return (
-    <div>
-      <h3>Code Cleaned up</h3>
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
 
