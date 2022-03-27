@@ -1,6 +1,7 @@
 import Header from "./components/LAYOUTS/Header";
 import Meals from "./components/MEALS/Meals";
 import Cart from "./components/CART/Cart";
+import CartProvider from "./store/CartProvider";
 import { useState } from "react";
 
 function App() {
@@ -12,15 +13,15 @@ function App() {
   const overlayClose = () => {
     setOpen(false);
   };
-  console.log('current',open)
+  console.log("current", open);
   return (
-    <>
+    <CartProvider>
       {open && <Cart onClose={overlayClose} />}
       <Header overlayOpen={overlayOpen} />
       <main>
         <Meals />
       </main>
-    </>
+    </CartProvider>
   );
 }
 

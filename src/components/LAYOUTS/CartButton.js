@@ -1,6 +1,14 @@
+import { useContext } from "react";
 import CartIcon from "./CartIcon";
+import CartContext from "../../store/cart-context";
 import classes from "./CartButton.module.css";
+
 const CartButton = (props) => {
+  const cartCtx = useContext(CartContext);
+
+  const cartItemCount = cartCtx.items.reduce((acc, curr) => {
+    return acc + curr.amount;
+  }, 0);
   return (
     <>
       {console.log(props.overlayOpen)}
@@ -9,7 +17,7 @@ const CartButton = (props) => {
           <CartIcon />
         </span>
         <span>Your Cart</span>
-        <span className={classes.badge}> 4 </span>
+        <span className={classes.badge}> {cartItemCount} </span>
       </button>
     </>
   );
